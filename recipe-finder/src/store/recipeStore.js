@@ -7,6 +7,7 @@ const useRecipeStore = create ((set) => ({
     loading : false,
     error: null,
     selectedRecipe: null,
+
    setQuery: (q) => set({ query: q}),
    
    searchByName: async (name) => {
@@ -33,7 +34,7 @@ const useRecipeStore = create ((set) => ({
     set ({loading: true, error: null});
     try {
         const data = await searchMealByID(id);
-        set ({ selectedRecipe : data, loading: false})
+        set ({ selectedRecipe : data? data : null, loading: false});
     } catch (error) {
     set ({ error: error.message, loading: false})
    }

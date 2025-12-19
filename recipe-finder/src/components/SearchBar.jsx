@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRecipeStore } from "../store/recipeStore";
+import  useRecipeStore  from "../store/recipeStore";
 
 const searchBar = () =>{
     const [input, setInput] = useState("");
@@ -21,6 +21,7 @@ const searchBar = () =>{
             <input
             type="text"
             value={input}
+            id="input"
             onChange={(e) => setInput(e.target.value)}
              className="p-3 rounded-l-lg w-80 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
       />

@@ -21,7 +21,7 @@ export const searchMealsByName = async (name) => {
     export const searchMealByID = async (id) => {
         try {
             const response = await axios.get(`${BASE_URL}/lookup.php?i=${id}`);
-            return response.data.meals;
+            return response.data.meals? response.data.meals[0] : null;
         } catch (error) {
             throw new Error("Failed to lookup meal by ID")
         }

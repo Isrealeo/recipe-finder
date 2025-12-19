@@ -17,3 +17,12 @@ export const searchMealsByName = async (name) => {
     } catch (error) {
         throw new Error("Failed to fetch meals by ingredient")
     }};
+
+    export const searchMealByID = async (id) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/lookup.php?i=${id}`);
+            return response.data.meals;
+        } catch (error) {
+            throw new Error("Failed to lookup meal by ID")
+        }
+    };

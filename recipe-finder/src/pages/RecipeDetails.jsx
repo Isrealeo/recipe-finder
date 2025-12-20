@@ -58,7 +58,7 @@ const RecipeDetail = () => {
   const isAdded = (ingredient) =>
     shoppingList.some((item) => item.name === ingredient.name);
 
-  return (
+  return (<div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
     <div className="relative min-h-screen">
       {/* Background */}
       <div
@@ -142,6 +142,7 @@ const RecipeDetail = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

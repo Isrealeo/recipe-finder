@@ -1,14 +1,11 @@
-import useFavoritesStore from "../store/favoritesStore";
-import RecipeCard from "../components/RecipeCard";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import useFavoritesStore from "../store/favoriteStore";
+import RecipeCard from "./RecipeCard";
 
 const Favorites = () => {
   const favorites = useFavoritesStore((state) => state.favorites);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
 
       <main className="flex-1 p-6">
         <h1 className="text-2xl font-bold mb-6">Your Favorites</h1>
@@ -24,7 +21,6 @@ const Favorites = () => {
         )}
       </main>
 
-      <Footer />
     </div>
   );
 };

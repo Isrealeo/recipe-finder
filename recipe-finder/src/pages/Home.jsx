@@ -8,6 +8,8 @@ import ErrorMessage from "../components/ErrorMessage";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RecipeCard from "../components/RecipeCard";
+import FavoritesList from "../components/FavoritesList";
+import ShoppingList from "../components/ShoppingList";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -49,7 +51,7 @@ const Home = () => {
         <h1 className="text-5xl font-bold text-gray-800 text-center">
           Recipe Finder
         </h1>
-         <h1 className="text-1xl font-bold text-gray-800 text-center">
+        <h1 className="text-1xl font-bold text-gray-800 text-center">
           find meals by name or ingredients
         </h1>
 
@@ -68,6 +70,10 @@ const Home = () => {
             ))}
           </div>
         )}
+        <div className="flex flex-col gap-6">
+          <FavoritesList />
+          <ShoppingList />
+        </div>
       </main>
 
       <Footer />

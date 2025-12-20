@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useFavoriteStore from "../store/favoriteStore";
+import { Heart } from "lucide-react";
 
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
@@ -23,13 +24,14 @@ const RecipeCard = ({ recipe }) => {
   };
 
   return (
-    <div className="max-w-xs rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition">
+    <div className="max-w-xs rounded-xl overflow-hidden shadow-md bg-white hover:shadow-lg transition">
       
+      {/* Image */}
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
-        className="w-full h-48 object-cover cursor-pointer"
         onClick={handleViewDetails}
+        className="w-full h-48 object-cover cursor-pointer"
       />
 
       <div className="p-4">
@@ -38,15 +40,22 @@ const RecipeCard = ({ recipe }) => {
             {recipe.strMeal}
           </h3>
 
-          {/* Favorite toggle */}
+          {/* Favorite button */}
           <button
             onClick={toggleFavorite}
-            className={`text-xl cursor-pointer ${
-              isFavorite ? "text-red-500" : "text-gray-400"
-            }`}
-            title="Add to favorites"
+            className={`p-2 rounded-full transition transform cursor-pointer
+              ${
+                isFavorite
+                  ? "bg-red-100 text-red-600 scale-110"
+                  : "bg-gray-100 text-gray-400 hover:text-red-400 hover:bg-red-50"
+              }
+            `}
+            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
           >
-            ❤️
+            <Heart
+              size={20}
+              fill={isFavorite ? "currentColor" : "none"}
+            />
           </button>
         </div>
 
@@ -59,7 +68,7 @@ const RecipeCard = ({ recipe }) => {
 
         <button
           onClick={handleViewDetails}
-          className="mt-3 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition cursor-pointer"
+          className="mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
         >
           View Details
         </button>

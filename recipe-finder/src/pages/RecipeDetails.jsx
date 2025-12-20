@@ -87,11 +87,22 @@ const RecipeDetail = () => {
                 href={strYoutube}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-center"
+                className="mt-4 mr-10 inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-center"
               >
                 Watch Video
               </a>
             )}
+            {selectedRecipe.strSource && (
+              <a
+                href={selectedRecipe.strSource}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4  ml-12 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+              >
+                View Full Recipe
+              </a>
+            )}
+
             <div>
               <button
                 onClick={handleBack}

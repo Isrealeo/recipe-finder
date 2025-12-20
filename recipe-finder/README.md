@@ -1,16 +1,43 @@
-# React + Vite
+# Recipe Finder App 🍲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Recipe Finder App is a frontend capstone project built with React. It allows users to search for meals and view recipe information using data from TheMealDB API. The project focuses on clean architecture, API integration, and responsive UI design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
+- **React** (Vite)
+- **Tailwind CSS v3**
+- **Zustand** (state management)
+- **Axios** (API requests)
+- **TheMealDB API**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Current Features
+- Search recipes by name
+- Display recipe cards with images and basic details
+- Fetch full recipe details by recipe ID
+- Global state management with Zustand
+- Responsive UI using Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔄 Planned Features
+- Search recipes by ingredient
+- Detailed recipe view (ingredients, instructions, YouTube video)
+- Navigation with React Router
+- Favorites list (localStorage)
+- Dark mode support
+
+---
+
+## 🛠️ Project Status
+This project is currently **in progress** as part of a frontend capstone requirement. Core setup, API integration, and foundational components have been implemented, with additional features planned.
+
+---
+
+## 📦 Getting Started
+
+### Install dependencies
+```bash
+npm install

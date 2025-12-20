@@ -13,60 +13,68 @@ const RecipeDetail = () => {
 
   useEffect(() => {
     searchByID(id);
-  }, [id, searchByID]);
+  }, [id]);
 
   if (loading) return <Loader />;
   if (error) return <ErrorMessage message={error} />;
-  if (!selectedRecipe) return <p>Loading recipe...</p>;
+  if (!selectedRecipe) return null;
 
-  const { strMeal, strCategory, strArea, strInstructions, strMealThumb, strYoutube } = selectedRecipe;
+  const { strMeal, strCategory, strArea, strInstructions, strMealThumb, strYoutube } =
+    selectedRecipe;
 
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
-    const ingredient = selectedRecipe[`strIngredient${i}`];
+    const ing = selectedRecipe[`strIngredient${i}`];
     const measure = selectedRecipe[`strMeasure${i}`];
-    if (ingredient && ingredient.trim() !== "") {
-      ingredients.push(`${ingredient} - ${measure}`);
-    }
+    if (ing) ingredients.push(`${ing} ${measure || ""}`);
   }
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center p-6"
-      style={{ backgroundImage: "url('/images/kitchen-bg.jpg')" }}
-    >
-      <div className="max-w-6xl mx-auto bg-white/90 rounded-lg p-6 shadow-lg">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Recipe Image */}
+    <div className="relative min-h-screen">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center blur-lg scale-110"
+        style={{ backgroundImage: `url(${strMealThumb})` }}
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto p-6">
+        <div className="bg-white/95 rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-8">
+          {/* Main Image */}
           <img
             src={strMealThumb}
             alt={strMeal}
-            className="w-full md:w-1/2 max-h-96 object-cover rounded-lg shadow-lg border-2 border-gray-200"
+            className="w-full md:w-1/2 max-h-80 object-cover rounded-lg"
           />
 
-          {/* Recipe Info */}
-          <div className="md:w-1/2 flex flex-col gap-4">
-            <h1 className="text-3xl font-bold text-gray-800">{strMeal}</h1>
-            <p><strong>Category:</strong> {strCategory}</p>
-            <p><strong>Area:</strong> {strArea}</p>
+          {/* Text */}
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold mb-2">{strMeal}</h1>
+            <p className="text-gray-600 mb-1">
+              <strong>Category:</strong> {strCategory}
+            </p>
+            <p className="text-gray-600 mb-4">
+              <strong>Area:</strong> {strArea}
+            </p>
 
-            <div>
-              <h2 className="text-2xl font-semibold mt-4 mb-2">Ingredients:</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
-                {ingredients.map((ing, idx) => <li key={idx}>{ing}</li>)}
-              </ul>
-            </div>
+            <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
+            <ul className="list-disc list-inside mb-4 space-y-1">
+              {ingredients.map((i, idx) => (
+                <li key={idx}>{i}</li>
+              ))}
+            </ul>
 
-            <div>
-              <h2 className="text-2xl font-semibold mt-4 mb-2">Instructions:</h2>
-              <p className="text-gray-700 whitespace-pre-line">{strInstructions}</p>
-            </div>
+            <h2 className="text-xl font-semibold mb-2">Instructions</h2>
+            <p className="text-gray-700 whitespace-pre-line">{strInstructions}</p>
 
             {strYoutube && (
               <a
                 href={strYoutube}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 className="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-center"
               >
                 Watch Video

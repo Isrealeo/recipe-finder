@@ -29,7 +29,8 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div
+     style={{ backgroundImage: "url('/images/background.jpg')" }}>
       <h1 style={{ textAlign: "center" }}>Recipe App</h1>
 
       <SearchBar

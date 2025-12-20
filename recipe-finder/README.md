@@ -1,6 +1,6 @@
 # Recipe Finder App 🍲
 
-The Recipe Finder App is a frontend capstone project built with React. It allows users to search for meals and view recipe information using data from TheMealDB API. The project focuses on clean architecture, API integration, and responsive UI design.
+The Recipe Finder App is a frontend capstone project built with React. It allows users to search for meals and view detailed recipe information using data from [TheMealDB API](https://www.themealdb.com/). The project focuses on clean architecture, responsive UI design, and modern state management with Zustand.
 
 ---
 
@@ -15,29 +15,46 @@ The Recipe Finder App is a frontend capstone project built with React. It allows
 
 ## ✨ Current Features
 - Search recipes by name
-- Display recipe cards with images and basic details
-- Fetch full recipe details by recipe ID
-- Global state management with Zustand
+- Search recipes by ingredient
+- Display recipe cards with images, category, and area
+- Detailed recipe view (ingredients, instructions, YouTube video, source link)
+- Favorites list saved in localStorage
+- Shopping list with editable quantities
+- Browse recipes by predefined categories
+- Dark mode toggle for light/dark themes
 - Responsive UI using Tailwind CSS
+- Global state management with Zustand
+- API integration with Axios
 
 ---
 
 ## 🔄 Planned Features
-- Search recipes by ingredient
-- Detailed recipe view (ingredients, instructions, YouTube video)
-- Navigation with React Router
-- Favorites list (localStorage)
-- Dark mode support
+- Additional recipe categories
+- Improved UI for better user experience
+- Export shopping list as a file
+- Enhanced dark mode persistence across sessions
 
 ---
 
 ## 🛠️ Project Status
-This project is currently **in progress** as part of a frontend capstone requirement. Core setup, API integration, and foundational components have been implemented, with additional features planned.
+This project is **in progress** as part of a frontend capstone requirement. Core setup, API integration, and foundational components are complete, with additional UI/UX improvements planned.
 
 ---
 
 ## 📦 Getting Started
 
-### Install dependencies
+### 1. Clone the repository
 ```bash
-npm install
+git clone https://github.com/yourusername/recipe-finder-app.git
+cd recipe-finder-app
+
+
+project structure
+/src
+  /components   # Reusable UI components (RecipeCard, Header, SearchBar, etc.)
+  /pages        # Page components (Home.jsx, RecipeDetail.jsx)
+  /store        # Zustand stores (recipeStore, favoriteStore, shoppingListStore, themeStore)
+  /services     # API services (mealApi.js)
+/public         # Static assets (images)
+/tailwind.config.js
+/package.json

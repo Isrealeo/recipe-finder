@@ -19,8 +19,14 @@ const RecipeDetail = () => {
   if (error) return <ErrorMessage message={error} />;
   if (!selectedRecipe) return null;
 
-  const { strMeal, strCategory, strArea, strInstructions, strMealThumb, strYoutube } =
-    selectedRecipe;
+  const {
+    strMeal,
+    strCategory,
+    strArea,
+    strInstructions,
+    strMealThumb,
+    strYoutube,
+  } = selectedRecipe;
 
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
@@ -28,6 +34,10 @@ const RecipeDetail = () => {
     const measure = selectedRecipe[`strMeasure${i}`];
     if (ing) ingredients.push(`${ing} ${measure || ""}`);
   }
+
+  const handleBack = () => {
+    window.history.back();
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -68,7 +78,9 @@ const RecipeDetail = () => {
             </ul>
 
             <h2 className="text-xl font-semibold mb-2">Instructions</h2>
-            <p className="text-gray-700 whitespace-pre-line">{strInstructions}</p>
+            <p className="text-gray-700 whitespace-pre-line">
+              {strInstructions}
+            </p>
 
             {strYoutube && (
               <a
@@ -80,6 +92,14 @@ const RecipeDetail = () => {
                 Watch Video
               </a>
             )}
+            <div>
+              <button
+                onClick={handleBack}
+                className="fixed top-4 left-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition"
+              >
+                ← Back
+              </button>
+            </div>
           </div>
         </div>
       </div>

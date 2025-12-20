@@ -4,7 +4,7 @@ import RecipeCard from "./RecipeCard";
 
 const RecipeList = ({ recipes }) => {
   if (!recipes || recipes.length === 0) {
-    return <p style={{ textAlign: "center", marginTop: "2rem" }}>No recipes found.</p>;
+    return <p style={{ textAlign: "center", marginTop: "2rem", color: "red" }}>No recipes found.</p>;
   }
 
   return (

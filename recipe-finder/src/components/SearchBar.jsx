@@ -1,37 +1,52 @@
 import { useState } from "react";
-import  useRecipeStore  from "../store/recipeStore";
+import useRecipeStore from "../store/recipeStore";
 
-const searchBar = () =>{
-    const [input, setInput] = useState("");
-    const searchByName = useRecipeStore((state) => state.searchByName);
-    const searchByIngredient = useRecipeStore((state) => state.searchByIngredient);
+const SearchBar = () => {
+  const [term, setTerm] = useState("");
+  const [type, setType] = useState("name"); // 'name' or 'ingredient'
+  const searchByName = useRecipeStore((state) => state.searchByName);
+  const searchByIngredients = useRecipeStore((state) => state.searchByIngredients);
 
-    const handlesubmit = (e) => {
-        e.preventDefault();
-        if (input.trim() === "") return;
-    
-    searchByName(input.trim());
-    setInput("");
-    }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!term) return;
 
-    return (
-        <form
-        onSubmit={handlesubmit}
-        className="flex justify-center items-center my-6">
-            <input
-            type="text"
-            value={input}
-            id="input"
-            onChange={(e) => setInput(e.target.value)}
-             className="p-3 rounded-l-lg w-80 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-      />
-      <button
-      type="submit"
-      className="bg-green-500 text-white px-4 py-3 rounded-r-lg hover:bg-green-600">
-        Search
-      </button>
-    </form>
-    );
+    if (type === "name") searchByName(term);
+    else searchByIngredients(term);
+  };
+
+  return (
+    <div className="flex justify-center mb-6">
+      <form
+        onSubmit={handleSearch}
+        className="flex flex-col md:flex-row gap-3 items-center p-6 rounded-xl bg-white/30 backdrop-blur-md shadow-lg"
+      >
+        <input
+          type="text"
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+          placeholder={`Search by ${type}`}
+          className="flex-1 p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition placeholder-gray-400"
+        />
+
+        <select
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+          className="p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition bg-white"
+        >
+          <option value="name">Name</option>
+          <option value="ingredient">Ingredient</option>
+        </select>
+
+        <button
+          type="submit"
+          className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  );
 };
 
-export default searchBar;
+export default SearchBar;

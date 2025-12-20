@@ -5,6 +5,8 @@ import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
 import Loader from "../components/Loader";
 import ErrorMessage from "../components/ErrorMessage";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -31,6 +33,7 @@ const Home = () => {
   return (
     <div
      style={{ backgroundImage: "url('/images/background.jpg')" }}>
+      <Header />
       <h1 style={{ textAlign: "center" }}>Recipe App</h1>
 
       <SearchBar
@@ -42,6 +45,7 @@ const Home = () => {
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}
       {!loading && !error && <RecipeList recipes={recipes} />}
+      <Footer />
     </div>
   );
 };

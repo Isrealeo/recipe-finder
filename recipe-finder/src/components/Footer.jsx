@@ -1,0 +1,9 @@
+const Footer = () => {
+  return (
+    <footer className="w-full bg-green-500 text-white py-4 text-center mt-10">
+      &copy; {new Date().getFullYear()} RicePot. All rights reserved.
+    </footer>
+  );
+};
+
+export default Footer;

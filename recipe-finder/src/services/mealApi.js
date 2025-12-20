@@ -26,3 +26,22 @@ export const searchMealsByName = async (name) => {
             throw new Error("Failed to lookup meal by ID")
         }
     };
+    // Get all meal categories
+export const getMealCategories = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/categories.php`);
+    return response.data.categories; 
+  } catch (error) {
+    throw new Error("Failed to fetch meal categories");
+  }
+};
+
+// Search meals by category
+export const searchMealByCategory = async (category) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/filter.php?c=${category}`);
+    return response.data.meals;
+  } catch (error) {
+    throw new Error("Failed to fetch meals by category");
+  }
+};

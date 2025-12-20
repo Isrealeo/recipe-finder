@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import RecipeCard from "../components/RecipeCard";
 import FavoritesList from "../components/FavoritesList";
 import ShoppingList from "../components/ShoppingList";
+import CategorySelector from "../components/CategorySelector";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -54,6 +55,8 @@ const Home = () => {
         <h1 className="text-1xl font-bold text-gray-800 text-center">
           find meals by name or ingredients
         </h1>
+
+        <CategorySelector />
 
         <SearchBar
           value={searchInput}

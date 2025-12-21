@@ -1,103 +1,99 @@
+// src/pages/Home.jsx
 import React, { useState } from "react";
-import useThemeStore from "../store/themeStore";
-import { HiMenu, HiX } from "react-icons/hi";
+import useRecipeStore from "../store/recipeStore";
+import SearchBar from "../components/SearchBar";
+import RecipeList from "../components/RecipeList";
+import Loader from "../components/Loader";
+import ErrorMessage from "../components/ErrorMessage";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import RecipeCard from "../components/RecipeCard";
+import FavoritesList from "../components/FavoritesList";
+import ShoppingList from "../components/ShoppingList";
+import CategorySelector from "../components/CategorySelector";
+import useFavoriteStore from "../store/favoriteStore";
+import useShoppingListStore from "../store/shoppingListStore";
 
-const Header = () => {
-  const toggleDarkMode = useThemeStore((state) => state.toggleDarkMode);
-  const darkMode = useThemeStore((state) => state.darkMode);
-  const [isOpen, setIsOpen] = useState(false);
+const Home = () => {
+  const [searchInput, setSearchInput] = useState("");
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  // Zustand state
+  const recipes = useRecipeStore((state) => state.recipes);
+  const loading = useRecipeStore((state) => state.loading);
+  const error = useRecipeStore((state) => state.error);
+
+  const favorites = useFavoriteStore((state) => state.favorites);
+  const shoppingListItems = useShoppingListStore((state) => state.shoppingList);
+
+  // Zustand actions
+  const searchByName = useRecipeStore((state) => state.searchByName);
+  const searchByIngredients = useRecipeStore(
+    (state) => state.searchByIngredients
+  );
+
+  // Handle search button click
+  const handleSearch = () => {
+    const query = searchInput.trim();
+    if (!query) return;
+
+    // You can choose either search by name or by ingredient
+    searchByName(query);
+    // Or: searchByIngredients(query);
+  };
+  const backgroundImage = "/images/ham.jpg";
 
   return (
-    <header className="
-      sticky top-0 z-50
-      bg-gradient-to-r from-green-400 to-green-500
-      dark:from-gray-900 dark:to-gray-800
-      backdrop-blur-md shadow-lg
-      py-4 px-6
-      flex items-center justify-between
-    ">
-      {/* Logo + App Name */}
-      <div className="flex-1 flex items-center justify-center sm:justify-start gap-3">
-        <div className="h-10 w-10 rounded-full overflow-hidden">
-          <img src="/images/man.jpg" alt="RecipeFinder Logo" className="h-10 w-10" />
-        </div>
-        <div className="text-2xl font-bold text-white dark:text-gray-100">
-          RecipeFinder
-        </div>
-      </div>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Header />
+      <main className="flex-1 flex flex-col justify-center items-center gap-6 p-6 bg-white/40 backdrop-blur-sm">
+        <h1 className="text-5xl font-bold text-gray-800 text-center">
+          Recipe Finder
+        </h1>
+        <h1 className="text-1xl font-bold text-gray-800 text-center">
+          find meals by name or ingredients
+        </h1>
 
-      {/* Desktop Links */}
-      <nav className="hidden sm:flex gap-6 items-center">
-        <a href="#home" className="text-white dark:text-gray-200 hover:text-gray-100 transition hover:scale-105">
-          Home
-        </a>
-        <a href="#about" className="text-white dark:text-gray-200 hover:text-gray-100 transition hover:scale-105">
-          About
-        </a>
-        <a href="#contact" className="text-white dark:text-gray-200 hover:text-gray-100 transition hover:scale-105">
-          Contact
-        </a>
+        <CategorySelector />
 
-        <button
-          onClick={toggleDarkMode}
-          className="
-            px-4 py-2 rounded transition
-            bg-green-500 hover:bg-green-600
-            dark:bg-gray-700 dark:hover:bg-gray-600
-            text-white
-          "
+        <SearchBar
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          onSearch={handleSearch}
+        />
+
+        {loading && <Loader />}
+        {error && <ErrorMessage message={error} />}
+        {!loading && !error && recipes.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+            {recipes.map((recipe) => (
+              <RecipeCard key={recipe.idMeal} recipe={recipe} />
+            ))}
+          </div>
+        )}
+
+        <div
+          className={`flex flex-col ${
+            favorites.length > 0 || shoppingListItems.length > 0
+              ? "gap-6"
+              : "gap-2"
+          }`}
         >
-          {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-        </button>
-      </nav>
-
-      {/* Mobile Menu Button */}
-      <div className="sm:hidden flex items-center">
-        <button
-          onClick={toggleMenu}
-          className="text-white dark:text-gray-200 text-2xl focus:outline-none"
-        >
-          {isOpen ? <HiX /> : <HiMenu />}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="
-          absolute top-full left-0 w-full
-          bg-gradient-to-r from-green-400 to-green-500
-          dark:from-gray-900 dark:to-gray-800
-          shadow-lg
-          flex flex-col items-center
-          py-4 sm:hidden
-        ">
-          <a href="#home" className="w-full text-center py-2 text-lg text-white dark:text-gray-200 hover:bg-green-600 dark:hover:bg-gray-700 transition">
-            Home
-          </a>
-          <a href="#about" className="w-full text-center py-2 text-lg text-white dark:text-gray-200 hover:bg-green-600 dark:hover:bg-gray-700 transition">
-            About
-          </a>
-          <a href="#contact" className="w-full text-center py-2 text-lg text-white dark:text-gray-200 hover:bg-green-600 dark:hover:bg-gray-700 transition">
-            Contact
-          </a>
-
-          <button
-            onClick={toggleDarkMode}
-            className="
-              mt-3 px-6 py-2 rounded transition
-              bg-green-500 hover:bg-green-600
-              dark:bg-gray-700 dark:hover:bg-gray-600
-              text-white
-            "
-          >
-            {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-          </button>
+          <FavoritesList />
+          <ShoppingList />
         </div>
-      )}
-    </header>
+      </main>
+
+      <Footer />
+    </div>
   );
 };
 
-export default Header;
+export default Home;

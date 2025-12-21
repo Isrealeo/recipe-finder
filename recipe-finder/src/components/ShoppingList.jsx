@@ -16,13 +16,13 @@ const ShoppingList = () => {
   };
 
   return (
-    <div className=" bg-gray-50 p-6 flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-6">Shopping List</h1>
+    <div className=" bg-gray-50 p-6 flex flex-col items-center dark:bg-gray-900 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 dark:text-gray-300">Shopping List</h1>
 
       {shoppingList.length === 0 ? (
         <p className="text-gray-600">No ingredients added yet.</p>
       ) : (
-        <div className="w-full max-w-3xl bg-white rounded-lg shadow-md p-4">
+        <div className="w-full max-w-3xl bg-white rounded-lg shadow-md p-4 dark:bg-gray-800">
           <ul className="space-y-4">
             {shoppingList.map((item, idx) => (
               <li
@@ -32,7 +32,7 @@ const ShoppingList = () => {
                 <div>
                   <span className="font-medium">{item.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2  p-2 rounded">
                   <input
                     type="text"
                     value={item.measure || ""}
@@ -40,7 +40,7 @@ const ShoppingList = () => {
                       handleQuantityChange(item.name, e.target.value)
                     }
                     placeholder="Quantity"
-                    className="border rounded px-2 py-1 w-24 text-center"
+                    className="border rounded px-2 py-1 w-24 text-center bg-gray-50 dark:bg-gray-700 dark:text-gray-200"
                   />
                   <button
                     onClick={() => removeIngredient(item.name)}

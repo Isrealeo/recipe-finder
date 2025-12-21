@@ -18,53 +18,59 @@ const RecipeCard = ({ recipe }) => {
 
   const toggleFavorite = (e) => {
     e.stopPropagation();
-    isFavorite
-      ? removeFavorite(recipe.idMeal)
-      : addFavorite(recipe);
+    isFavorite ? removeFavorite(recipe.idMeal) : addFavorite(recipe);
   };
 
   return (
-    <div className="max-w-xs rounded-xl overflow-hidden shadow-md bg-white hover:shadow-lg transition ">
-      
+    <div
+      className="
+        max-w-xs rounded-xl overflow-hidden shadow-md
+        bg-white dark:bg-gray-800
+        text-gray-900 dark:text-gray-100
+        hover:shadow-lg transition
+      "
+    >
       {/* Image */}
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
         loading="lazy"
         onClick={handleViewDetails}
-        className="w-full h-48 object-cover cursor-pointer"
+        className="w-full h-40 sm:h-48 object-cover cursor-pointer"
       />
 
       <div className="p-4">
         <div className="flex justify-between items-start">
-          <h3 className="text-lg font-semibold text-gray-800">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
             {recipe.strMeal}
           </h3>
 
           {/* Favorite button */}
           <button
             onClick={toggleFavorite}
-            className={`p-2 rounded-full transition transform cursor-pointer
+            className={`p-2 rounded-full transition transform
               ${
                 isFavorite
                   ? "bg-red-100 text-red-600 scale-110"
-                  : "bg-gray-100 text-gray-400 hover:text-red-400 hover:bg-red-50"
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-300 hover:text-red-400"
               }
             `}
             title={isFavorite ? "Remove from favorites" : "Add to favorites"}
           >
-            <Heart
-              size={20}
-              fill={isFavorite ? "currentColor" : "none"}
-            />
+            <Heart size={20} fill={isFavorite ? "currentColor" : "none"} />
           </button>
         </div>
 
         {recipe.strCategory && (
-          <p className="text-sm text-gray-500">{recipe.strCategory}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {recipe.strCategory}
+          </p>
         )}
+
         {recipe.strArea && (
-          <p className="text-sm text-gray-500">{recipe.strArea}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {recipe.strArea}
+          </p>
         )}
 
         <button

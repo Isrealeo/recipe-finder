@@ -15,8 +15,8 @@ const CategorySelector = () => {
           onClick={() => searchByCategory(category)}
           className={`px-4 py-2 rounded transition font-medium ${
             selectedCategory === category
-              ? "bg-green-500 text-white"
-              : "bg-gray-200 text-gray-800 hover:bg-green-500 hover:text-white"
+              ? "bg-green-500 text-white "
+              : "bg-gray-200 text-gray-800 hover:bg-green-500 hover:text-white dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-500"
           }`}
         >
           {category}

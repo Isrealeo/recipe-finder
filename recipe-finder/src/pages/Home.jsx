@@ -53,11 +53,12 @@ const Home = () => {
       }}
     >
       <Header />
-      <main className="flex-1 flex flex-col justify-center items-center gap-6 p-6 bg-white/40 backdrop-blur-sm">
-        <h1 className="text-5xl font-bold text-gray-800 text-center">
+      <main className="  flex-1 flex flex-col justify-center items-center gap-6 p-6
+  bg-white/70 dark:bg-gray-900/80  backdrop-blur-sm">
+        <h1 className="text-5xl font-bold text-gray-800 text-center dark:text-gray-300">
           Recipe Finder
         </h1>
-        <h1 className="text-1xl font-bold text-gray-800 text-center">
+        <h1 className="text-1xl font-bold text-gray-800 text-center dark:text-gray-300">
           find meals by name or ingredients
         </h1>
 

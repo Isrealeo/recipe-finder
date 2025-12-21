@@ -58,7 +58,7 @@ const RecipeDetail = () => {
   const isAdded = (ingredient) =>
     shoppingList.some((item) => item.name === ingredient.name);
 
-  return (<div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+  return (
     <div className="relative min-h-screen">
       {/* Background */}
       <div
@@ -68,7 +68,7 @@ const RecipeDetail = () => {
       <div className="absolute inset-0 bg-black/60" />
 
       <div className="relative z-10 max-w-5xl mx-auto p-6">
-        <div className="bg-white/95 rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-8">
+        <div className="bg-white/95 rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-8 dark:bg-gray-800/95 text-gray-900 dark:text-gray-100">
           {/* Recipe Image */}
           <img
             src={strMealThumb}
@@ -79,22 +79,22 @@ const RecipeDetail = () => {
           {/* Text Content */}
           <div className="flex-1">
             <h1 className="text-3xl font-bold mb-2">{strMeal}</h1>
-            <p className="text-gray-600 mb-1">
+            <p className="text-gray-600 mb-1 dark:text-gray-300">
               <strong>Category:</strong> {strCategory}
             </p>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 dark:text-gray-300">
               <strong>Area:</strong> {strArea}
             </p>
 
             {/* Ingredients */}
             <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
-            <ul className="list-disc list-inside mb-4 space-y-1">
+            <ul className="list-disc list-inside mb-4 space-y-1 ">
               {ingredients.map((item, idx) => (
                 <li key={idx} className="flex justify-between items-center">
                   <span>{`${item.name} ${item.measure}`}</span>
                   <button
                     onClick={() => toggleIngredient(item)}
-                    className={`ml-4 px-2 py-1 rounded transition ${
+                    className={`ml-4 px-2 py-1 rounded transition dark:bg-gray-300 ${
                       isAdded(item)
                         ? "bg-green-500 text-white"
                         : "bg-gray-200 text-gray-800 hover:bg-green-500 hover:text-white"
@@ -108,7 +108,7 @@ const RecipeDetail = () => {
 
             {/* Instructions */}
             <h2 className="text-xl font-semibold mb-2">Instructions</h2>
-            <p className="text-gray-700 whitespace-pre-line">{strInstructions}</p>
+            <p className="text-gray-700 whitespace-pre-line dark:text-gray-300">{strInstructions}</p>
 
             {/* External Links */}
             {strYoutube && (
@@ -142,7 +142,6 @@ const RecipeDetail = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

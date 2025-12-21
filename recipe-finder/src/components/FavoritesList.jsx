@@ -8,7 +8,7 @@ const Favorites = () => {
     <div className="flex flex-col">
 
       <main className="flex-1 p-6">
-        <h1 className="text-2xl font-bold mb-6">Your Favorites</h1>
+        <h1 className="text-2xl font-bold mb-6 dark:text-gray-300">Your Favorites</h1>
 
         {favorites.length === 0 ? (
           <p className="text-gray-500">No favorites yet ❤️</p>

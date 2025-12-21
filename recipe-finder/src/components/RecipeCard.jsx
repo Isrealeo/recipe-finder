@@ -24,12 +24,13 @@ const RecipeCard = ({ recipe }) => {
   };
 
   return (
-    <div className="max-w-xs rounded-xl overflow-hidden shadow-md bg-white hover:shadow-lg transition">
+    <div className="max-w-xs rounded-xl overflow-hidden shadow-md bg-white hover:shadow-lg transition ">
       
       {/* Image */}
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
+        loading="lazy"
         onClick={handleViewDetails}
         className="w-full h-48 object-cover cursor-pointer"
       />

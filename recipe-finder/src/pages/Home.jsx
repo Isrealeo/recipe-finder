@@ -11,6 +11,8 @@ import RecipeCard from "../components/RecipeCard";
 import FavoritesList from "../components/FavoritesList";
 import ShoppingList from "../components/ShoppingList";
 import CategorySelector from "../components/CategorySelector";
+import useFavoriteStore from "../store/favoriteStore";
+import useShoppingListStore from "../store/shoppingListStore";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -19,6 +21,9 @@ const Home = () => {
   const recipes = useRecipeStore((state) => state.recipes);
   const loading = useRecipeStore((state) => state.loading);
   const error = useRecipeStore((state) => state.error);
+
+  const favorites = useFavoriteStore((state) => state.favorites);
+  const shoppingListItems = useShoppingListStore((state) => state.shoppingList);
 
   // Zustand actions
   const searchByName = useRecipeStore((state) => state.searchByName);
@@ -48,7 +53,7 @@ const Home = () => {
       }}
     >
       <Header />
-      <main className="flex-1 flex flex-col justify-center items-center gap-6 p-6 bg-white/50 backdrop-blur-sm">
+      <main className="flex-1 flex flex-col justify-center items-center gap-6 p-6 bg-white/40 backdrop-blur-sm">
         <h1 className="text-5xl font-bold text-gray-800 text-center">
           Recipe Finder
         </h1>
@@ -73,7 +78,14 @@ const Home = () => {
             ))}
           </div>
         )}
-        <div className="flex flex-col gap-6">
+
+        <div
+          className={`flex flex-col ${
+            favorites.length > 0 || shoppingListItems.length > 0
+              ? "gap-6"
+              : "gap-2"
+          }`}
+        >
           <FavoritesList />
           <ShoppingList />
         </div>

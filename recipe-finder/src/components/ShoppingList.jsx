@@ -16,7 +16,7 @@ const ShoppingList = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center">
+    <div className=" bg-gray-50 p-6 flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-6">Shopping List</h1>
 
       {shoppingList.length === 0 ? (

@@ -5,7 +5,7 @@ const Favorites = () => {
   const favorites = useFavoritesStore((state) => state.favorites);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
 
       <main className="flex-1 p-6">
         <h1 className="text-2xl font-bold mb-6">Your Favorites</h1>

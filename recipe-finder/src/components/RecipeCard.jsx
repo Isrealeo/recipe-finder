@@ -36,7 +36,11 @@ const RecipeCard = ({ recipe }) => {
         alt={recipe.strMeal}
         loading="lazy"
         onClick={handleViewDetails}
-        className="w-full h-28 sm:h-48 object-cover cursor-pointer"
+        className="w-full sm:w-72 md:w-80 lg:w-96 
+    h-40 sm:h-48 object-cover 
+    cursor-pointer
+    mx-auto
+  "
       />
 
       <div className="p-3 sm:p-4">

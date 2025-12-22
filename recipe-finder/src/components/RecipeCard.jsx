@@ -36,12 +36,12 @@ const RecipeCard = ({ recipe }) => {
         alt={recipe.strMeal}
         loading="lazy"
         onClick={handleViewDetails}
-        className="w-full h-40 sm:h-48 object-cover cursor-pointer"
+        className="w-full h-28 sm:h-48 object-cover cursor-pointer"
       />
 
-      <div className="p-4">
-        <div className="flex justify-between items-start">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+      <div className="p-3 sm:p-4">
+        <div className="flex justify-between items-start gap-2">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-100">
             {recipe.strMeal}
           </h3>
 
@@ -57,25 +57,25 @@ const RecipeCard = ({ recipe }) => {
             `}
             title={isFavorite ? "Remove from favorites" : "Add to favorites"}
           >
-            <Heart size={20} fill={isFavorite ? "currentColor" : "none"} />
+            <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
           </button>
         </div>
 
         {recipe.strCategory && (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             {recipe.strCategory}
           </p>
         )}
 
         {recipe.strArea && (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             {recipe.strArea}
           </p>
         )}
 
         <button
           onClick={handleViewDetails}
-          className="mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
+          className="mt-3 sm:mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition"
         >
           View Details
         </button>

@@ -15,7 +15,9 @@ const RecipeDetail = () => {
 
   const shoppingList = useShoppingListStore((state) => state.shoppingList);
   const addIngredient = useShoppingListStore((state) => state.addIngredient);
-  const removeIngredient = useShoppingListStore((state) => state.removeIngredient);
+  const removeIngredient = useShoppingListStore(
+    (state) => state.removeIngredient
+  );
 
   useEffect(() => {
     searchByID(id);
@@ -108,29 +110,34 @@ const RecipeDetail = () => {
 
             {/* Instructions */}
             <h2 className="text-xl font-semibold mb-2">Instructions</h2>
-            <p className="text-gray-700 whitespace-pre-line dark:text-gray-300">{strInstructions}</p>
+            <p className="text-gray-700 whitespace-pre-line dark:text-gray-300">
+              {strInstructions}
+            </p>
 
             {/* External Links */}
-            {strYoutube && (
-              <a
-                href={strYoutube}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 mr-10 inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-center"
-              >
-                Watch Video
-              </a>
-            )}
-            {strSource && (
-              <a
-                href={strSource}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 ml-12 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
-              >
-                View Full Recipe
-              </a>
-            )}
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:gap-6">
+              {strYoutube && (
+                <a
+                  href={strYoutube}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto bg-red-500 text-white py-3 px-6 rounded-lg text-center hover:bg-red-600 transition"
+                >
+                  Watch Video
+                </a>
+              )}
+
+              {strSource && (
+                <a
+                  href={strSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto bg-green-500 text-white py-3 px-6 rounded-lg text-center hover:bg-green-600 transition"
+                >
+                  View Full Recipe
+                </a>
+              )}
+            </div>
 
             {/* Back Button */}
             <button

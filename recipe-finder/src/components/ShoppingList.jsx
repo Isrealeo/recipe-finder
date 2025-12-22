@@ -30,7 +30,7 @@ const ShoppingList = () => {
                 className="flex justify-between items-center border-b pb-2"
               >
                 <div>
-                  <span className="font-medium">{item.name}</span>
+                  <span className="font-medium dark:text-gray-200">{item.name}</span>
                 </div>
                 <div className="flex items-center gap-2  p-2 rounded">
                   <input

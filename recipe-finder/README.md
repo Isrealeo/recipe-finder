@@ -64,26 +64,26 @@ Future updates will focus on **UX polish, performance, and accessibility**.
 git clone https://github.com/yourusername/recipe-finder-app.git
 cd recipe-finder-app
 
-###2️⃣ Install dependencies
+### 2️⃣ Install dependencies
 npm install
 
-###3️⃣ Run the development server
+### 3️⃣ Run the development server
 npm run dev
 
-###The app will be available at:
+### The app will be available at:
 
 http://localhost:5173
 ---
-##Project Structure
+## Project Structure
 
--/src
+/src
   /components    Reusable UI components (Header, RecipeCard, SearchBar, etc.)
   /pages        Page components (Home.jsx, RecipeDetail.jsx)
   /store         Zustand stores (recipeStore, favoriteStore, shoppingListStore, themeStore)
   /services      API services (mealApi.js)
--/public          Static assets (images)
--/tailwind.config.js
--/package.json
+/public          Static assets (images)
+/tailwind.config.js
+/package.json
 ---
 ## Deployment
 

@@ -74,16 +74,16 @@ npm run dev
 
 http://localhost:5173
 ---
-Project Structure
+##Project Structure
 
-/src
+-/src
   /components    Reusable UI components (Header, RecipeCard, SearchBar, etc.)
   /pages        Page components (Home.jsx, RecipeDetail.jsx)
   /store         Zustand stores (recipeStore, favoriteStore, shoppingListStore, themeStore)
   /services      API services (mealApi.js)
-/public          Static assets (images)
-/tailwind.config.js
-/package.json
+-/public          Static assets (images)
+-/tailwind.config.js
+-/package.json
 ---
 ## Deployment
 

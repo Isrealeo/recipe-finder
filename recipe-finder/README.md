@@ -71,8 +71,9 @@ npm install
 npm run dev
 
 The app will be available at:
-http://localhost:5173
+http://localhost:
 
+## project structure
 /src
   /components   # Reusable UI components (Header, RecipeCard, SearchBar, etc.)
   /pages        # Page components (Home.jsx, RecipeDetail.jsx)

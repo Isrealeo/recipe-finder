@@ -1,60 +1,97 @@
 # Recipe Finder App 🍲
 
-The Recipe Finder App is a frontend capstone project built with React. It allows users to search for meals and view detailed recipe information using data from [TheMealDB API](https://www.themealdb.com/). The project focuses on clean architecture, responsive UI design, and modern state management with Zustand.
+The **Recipe Finder App** is a frontend capstone project built with **React**.  
+It allows users to search, browse, and manage recipes using data from  
+[TheMealDB API](https://www.themealdb.com/).
+
+The project emphasizes **clean architecture**, **responsive UI design**, and **modern state management** with Zustand.
+
+---
+
+## 🌍 Live Demo
+👉 https://recipe-finder-lac-seven.vercel.app
 
 ---
 
 ## 🚀 Tech Stack
 - **React** (Vite)
 - **Tailwind CSS v3**
-- **Zustand** (state management)
-- **Axios** (API requests)
+- **Zustand** – global state management
+- **Axios** – API requests
 - **TheMealDB API**
 
 ---
 
 ## ✨ Current Features
-- Search recipes by name
-- Search recipes by ingredient
-- Display recipe cards with images, category, and area
-- Detailed recipe view (ingredients, instructions, YouTube video, source link)
-- Favorites list saved in localStorage
-- Shopping list with editable quantities
-- Browse recipes by predefined categories
-- Dark mode toggle for light/dark themes
-- Responsive UI using Tailwind CSS
-- Global state management with Zustand
-- API integration with Axios
+- 🔍 Search recipes by **name**
+- 🧂 Search recipes by **ingredient**
+- 🗂️ Browse recipes by **predefined categories**
+- 🖼️ Recipe cards with image, category, and area
+- 📖 Detailed recipe view:
+  - Ingredients & measurements
+  - Cooking instructions
+  - YouTube video (if available)
+  - Source link
+- ❤️ Favorites list (persisted in **localStorage**)
+- 🛒 Shopping list with editable quantities
+- 🌙 Dark mode toggle (light/dark themes)
+- 📱 Fully responsive UI (mobile, tablet, desktop)
+- ⚡ Global state management using Zustand
+- 🔗 API integration using Axios
 
 ---
 
 ## 🔄 Planned Features
 - Additional recipe categories
-- Improved UI for better user experience
-- Export shopping list as a file
-- Enhanced dark mode persistence across sessions
+- Improved mobile UI and animations
+- Export shopping list as a file (PDF/CSV)
+- Dark mode persistence across sessions
+- Performance optimizations (lazy loading & pagination)
 
 ---
 
 ## 🛠️ Project Status
-This project is **in progress** as part of a frontend capstone requirement. Core setup, API integration, and foundational components are complete, with additional UI/UX improvements planned.
+This project is **in progress** as part of a frontend capstone requirement.
+
+Core functionality, API integration, and major features are complete.  
+Future updates will focus on **UX polish, performance, and accessibility**.
 
 ---
 
 ## 📦 Getting Started
 
-### 1. Clone the repository
-```bash
+### 1️⃣ Clone the repository
 git clone https://github.com/yourusername/recipe-finder-app.git
 cd recipe-finder-app
 
+### 2️⃣ Install dependencies
+npm install
 
-project structure
+### 3️⃣ Run the development server
+npm run dev
+
+The app will be available at:
+http://localhost:
+
+## project structure
 /src
-  /components   # Reusable UI components (RecipeCard, Header, SearchBar, etc.)
+  /components   # Reusable UI components (Header, RecipeCard, SearchBar, etc.)
   /pages        # Page components (Home.jsx, RecipeDetail.jsx)
   /store        # Zustand stores (recipeStore, favoriteStore, shoppingListStore, themeStore)
   /services     # API services (mealApi.js)
 /public         # Static assets (images)
 /tailwind.config.js
 /package.json
+
+## Deployment
+
+The application is deployed on Vercel.
+
+To deploy updates manually:
+
+vercel --prod
+---
+## 👤 Author
+
+Isreal Nwaminogbe
+Frontend Developer | React & Tailwind CSS

@@ -61,23 +61,20 @@ Future updates will focus on **UX polish, performance, and accessibility**.
 ## 📦 Getting Started
 
 ### 1️⃣ Clone the repository
-```bash
 git clone https://github.com/yourusername/recipe-finder-app.git
 cd recipe-finder-app
-2️⃣ Install dependencies
-npm install
-3️⃣ Run the development server
-bash
-Copy code
-npm run dev
-The app will be available at:
 
-arduino
-Copy code
+###2️⃣ Install dependencies
+npm install
+
+###3️⃣ Run the development server
+npm run dev
+
+###The app will be available at:
+
 http://localhost:5173
-🏗️ Project Structure
-bash
-Copy code
+---
+## Project Structure
 /src
   /components   # Reusable UI components (Header, RecipeCard, SearchBar, etc.)
   /pages        # Page components (Home.jsx, RecipeDetail.jsx)
@@ -86,14 +83,16 @@ Copy code
 /public         # Static assets (images)
 /tailwind.config.js
 /package.json
-📌 Deployment
+---
+## Deployment
+
 The application is deployed on Vercel.
 
-Each update can be redeployed by pushing changes to the main branch or running:
+To deploy updates manually:
 
-bash
-Copy code
 vercel --prod
-👤 Author
+---
+## 👤 Author
+
 Isreal Nwaminogbe
-Frontend Developer (React)
+Frontend Developer | React & Tailwind CSS

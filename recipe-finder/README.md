@@ -61,7 +61,7 @@ Future updates will focus on **UX polish, performance, and accessibility**.
 ## 📦 Getting Started
 
 ### 1️⃣ Clone the repository
-git clone https://github.com/yourusername/recipe-finder-app.git
+git clone https://github.com/isrealeo/recipe-finder-app.git
 cd recipe-finder-app
 
 ### 2️⃣ Install dependencies
@@ -71,7 +71,7 @@ npm install
 npm run dev
 
 The app will be available at:
-http://localhost:
+http://localhost:5173
 
 ## project structure
 /src

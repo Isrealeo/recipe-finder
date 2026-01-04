@@ -74,7 +74,7 @@ npm run dev
 
 http://localhost:5173
 ---
-## Project Structure
+Project Structure
 
 /src
   /components    Reusable UI components (Header, RecipeCard, SearchBar, etc.)
